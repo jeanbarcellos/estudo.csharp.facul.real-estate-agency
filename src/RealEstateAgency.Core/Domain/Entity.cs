@@ -50,5 +50,10 @@ namespace RealEstateAgency.Core.Domain
         }
 
         #endregion
+
+        public virtual bool IsValid()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
