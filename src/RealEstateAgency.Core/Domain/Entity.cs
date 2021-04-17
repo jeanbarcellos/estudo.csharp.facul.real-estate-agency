@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using System;
 
 namespace RealEstateAgency.Core.Domain
 {
@@ -6,6 +7,7 @@ namespace RealEstateAgency.Core.Domain
     {
         public Guid Id { get; set; }
 
+        public ValidationResult ValidationResult { get; protected set; }
         protected Entity()
         {
             Id = Guid.NewGuid();
