@@ -1,4 +1,5 @@
 ﻿using RealEstateAgency.Core.Domain;
+using RealEstateAgency.Domain.Validations;
 using System;
 
 namespace RealEstateAgency.Domain
@@ -15,7 +16,11 @@ namespace RealEstateAgency.Domain
             Name = name;
             Birthday = birthday;
         }
+
+        public override bool IsValid()
+        {
+            ValidationResult = new ClientValidation().Validate(this);
+            return ValidationResult.IsValid;
+        }
     }
-
-
 }
