@@ -6,6 +6,11 @@ namespace RealEstateAgency.Core.Domain
     {
         public Guid Id { get; set; }
 
+        protected Entity()
+        {
+            Id = Guid.NewGuid();
+        }
+
         #region BaseBehaviours
 
         public override bool Equals(object obj)
