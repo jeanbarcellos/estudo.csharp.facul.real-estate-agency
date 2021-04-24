@@ -8,6 +8,18 @@ namespace RealEstateAgency.Core.Domain
         public Guid Id { get; set; }
 
         public ValidationResult ValidationResult { get; protected set; }
+
+        // EquinoxProjetct / NetDevPack
+        // https://github.com/EduardoPires/EquinoxProject/blob/2cbb15cff0274227642ff67928b637a60f4f17a2/src/Equinox.Domain.Core/Models/Entity.cs
+        // Lançar eventos de domínio
+        //private List<Event> _domainEvents;
+        //public IReadOnlyCollection<Event> DomainEvents => _domainEvents?.AsReadOnly();
+
+        // Curso Domínios Ricos
+        // Notificar erros ou problemas
+        //private List<Event> _notificacoes;
+        //public IReadOnlyCollection<Event> Notificacoes => _notificacoes?.AsReadOnly();
+
         protected Entity()
         {
             Id = Guid.NewGuid();
@@ -53,9 +65,13 @@ namespace RealEstateAgency.Core.Domain
 
         #endregion
 
+        #region Validations
+
         public virtual bool IsValid()
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
