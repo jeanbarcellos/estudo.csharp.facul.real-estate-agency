@@ -1,8 +1,8 @@
 ﻿using RealEstateAgency.Core.Domain;
-using RealEstateAgency.Domain.Validations;
+using RealEstateAgency.Domain.Entities.Validations;
 using System;
 
-namespace RealEstateAgency.Domain
+namespace RealEstateAgency.Domain.Entities
 {
     public class Client : Entity, IAggregateRoot
     {

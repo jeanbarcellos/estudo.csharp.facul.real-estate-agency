@@ -1,36 +1,47 @@
 ﻿using FluentValidation;
 using System;
 
-namespace RealEstateAgency.Domain.Validations
+namespace RealEstateAgency.Domain.Entities.Validations
 {
     public class ClientValidation : AbstractValidator<Client>
     {
-        public static string NameNotEmptyMessage => "Por favor, certifique-se de ter inserido o nome";
+        public static string NameNotEmptyMessage => "O nome não foi informado";
         public static string NameLengthMessage => "O nome deve ter entre 2 e 150 caracteres";
-        public static string SocialNumberNotEmptyMessage => "Por favor, certifique-se de ter inserido o CPF";
+        public static string SocialNumberNotEmptyMessage => "O CPF não foi informado";
         public static string SocialNumberLengthMessage => "O CPF deve ter 14 caracteres";
         public static string SocialNumberInvalid => "O CPF é inválido";
         public static string BirthdayMustMessage => "O cliente deve ter 18 anos ou mais";
 
         public ClientValidation()
         {
+            ValidateName();
+            ValidateSocialNumber();
+            ValidateBirthday();
+        }
+
+        protected void ValidateName()
+        {
             RuleFor(c => c.Name)
                 .NotEmpty().WithMessage(NameNotEmptyMessage)
                 .Length(2, 150).WithMessage(NameLengthMessage);
+        }
 
+        protected void ValidateSocialNumber()
+        {
             RuleFor(c => c.SocialNumber)
                 .NotEmpty().WithMessage(SocialNumberNotEmptyMessage)
                 .Must(CpfIsValid).WithMessage(SocialNumberInvalid);
+        }
 
+        protected static bool HaveMinimumAge(DateTime birthDate) => birthDate <= DateTime.Now.AddYears(-18);
+
+        protected void ValidateBirthday()
+        {
             RuleFor(c => c.Birthday)
                 .NotEmpty()
                 .Must(HaveMinimumAge).WithMessage(BirthdayMustMessage);
         }
 
-        public static bool HaveMinimumAge(DateTime birthDate) => birthDate <= DateTime.Now.AddYears(-18);
-
-        public static bool CpfIsValid(string socialNumber) => RealEstateAgency.Core.Validations.IsValidCpf(socialNumber);
-
+        protected static bool CpfIsValid(string socialNumber) => RealEstateAgency.Core.Validations.IsValidCpf(socialNumber);
     }
-
 }
