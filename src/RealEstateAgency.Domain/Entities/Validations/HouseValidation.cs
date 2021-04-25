@@ -15,6 +15,7 @@ namespace RealEstateAgency.Domain.Entities.Validations
             ValidateNumberOfBedrooms();
             ValidateNumberOfBathrooms();
             ValidateNumberOfGarage();
+            ValidateHasFurtine();
             ValidateDescription();
             ValidateSaleValue();
             ValidateClient();

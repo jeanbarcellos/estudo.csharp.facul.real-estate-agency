@@ -18,12 +18,10 @@ namespace RealEstateAgency.Domain.Entities
             int numberOfBathrooms,
             int numberOfGarage,
             bool hasFurtine,
-            decimal saleValue,
             string description,
+            decimal saleValue,
             Client client
-            ) : base(
-                  saleValue,
-                  client)
+            ) : base(saleValue, client)
         {
             NumberOfBedrooms = numberOfBedrooms;
             NumberOfBathrooms = numberOfBathrooms;
