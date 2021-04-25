@@ -11,7 +11,7 @@ namespace RealEstateAgency.Domain.Tests.Entities
     public class HouseTests
     {
         readonly ITestOutputHelper _outputHelper;
-        private readonly Client _client;
+        private Client _client;
 
         public HouseTests(ITestOutputHelper outputHelper)
         {
@@ -19,20 +19,19 @@ namespace RealEstateAgency.Domain.Tests.Entities
             _client = new Client("318.973.470-49", "Jean Barcellos", new DateTime(1989, 12, 18));
         }
 
-
         [Fact(DisplayName = "New house valid")]
         [Trait("Category", "Domain - House")]
         public void House_NewHouse_ShouldBeValid()
         {
             // Arrange
-            var numberOfBedrooms = 3;
-            var numberOfBathrooms = 2;
+            var numberOfBedrooms = House.MIN_NUMBER_OF_BEDROOMS + 1;
+            var numberOfBathrooms = House.MIN_NUMBER_OF_BATHROMS + 1;
             var numberOfGarage = 1;
             var hasFurtine = true;
             var saleValue = 123456.99m;
             var description = "Possui piscina";
 
-            var house = new House(numberOfBedrooms, numberOfBathrooms, numberOfGarage, hasFurtine, saleValue, description, _client);
+            var house = new House(numberOfBedrooms, numberOfBathrooms, numberOfGarage, hasFurtine, description, saleValue, _client);
 
             // Act
             var result = house.IsValid();
@@ -55,10 +54,10 @@ namespace RealEstateAgency.Domain.Tests.Entities
             var numberOfBathrooms = House.MIN_NUMBER_OF_BATHROMS - 1;
             var numberOfGarage = 0;
             var hasFurtine = true;
-            var saleValue = Property.NIM_SALE_VALUE - 1;
+            var saleValue = House.NIM_SALE_VALUE - 1;
             var description = "";
 
-            var house = new House(numberOfBedrooms, numberOfBathrooms, numberOfGarage, hasFurtine, saleValue, description, null);
+            var house = new House(numberOfBedrooms, numberOfBathrooms, numberOfGarage, hasFurtine, description, saleValue, null);
 
             // Act
             var result = house.IsValid();
