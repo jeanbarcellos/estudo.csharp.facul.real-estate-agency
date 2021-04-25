@@ -1,35 +1,19 @@
 ﻿using Xunit;
 using System;
+using RealEstateAgency.Domain.Entities;
+using RealEstateAgency.Domain.Entities.Validations;
+using System.Linq;
 
 namespace RealEstateAgency.Domain.Tests.Entities
 {
     public class ClientTests
     {
-        [Fact(DisplayName = "New client valid (simple)")]
-        [Trait("Category", "Domain - Client")]
-        public void Client_Create_ReturnClient()
-        {
-            // Arrange
-            var socialNumber = "11122233389";
-            var name = "Jean Barcellos";
-            var birthday = new DateTime(1989, 12, 18);
-
-            // Act
-            var client = new Client(socialNumber, name, birthday);
-
-            // Assert
-            Assert.IsType<Client>(client);
-            Assert.Equal(socialNumber, client.SocialNumber);
-            Assert.Equal(name, client.Name);
-            Assert.Equal(birthday, client.Birthday);
-        }
-
         [Fact(DisplayName = "New client valid")]
         [Trait("Category", "Domain - Client")]
         public void Client_NewClient_ShouldBeValid()
         {
             // Arrange
-            var socialNumber = "11122233389";
+            var socialNumber = "318.973.470-49";
             var name = "Jean Barcellos";
             var birthday = new DateTime(1989, 12, 18);
 
@@ -39,8 +23,12 @@ namespace RealEstateAgency.Domain.Tests.Entities
             var result = client.IsValid();
 
             // Asssert
+            Assert.IsType<Client>(client);
             Assert.True(result);
             Assert.Empty(client.ValidationResult.Errors);
+            Assert.Equal(socialNumber, client.SocialNumber);
+            Assert.Equal(name, client.Name);
+            Assert.Equal(birthday, client.Birthday);
         }
 
         [Fact(DisplayName = "New client invalid")]
@@ -59,7 +47,12 @@ namespace RealEstateAgency.Domain.Tests.Entities
 
             // Asssert
             Assert.False(result);
-            Assert.NotEmpty(client.ValidationResult.Errors);
+            Assert.Equal(5, client.ValidationResult.Errors.Count);
+            Assert.Contains(ClientValidation.NameNotEmptyMessage, client.ValidationResult.Errors.Select(e => e.ErrorMessage));
+            Assert.Contains(ClientValidation.NameLengthMessage, client.ValidationResult.Errors.Select(e => e.ErrorMessage));
+            Assert.Contains(ClientValidation.SocialNumberNotEmptyMessage, client.ValidationResult.Errors.Select(e => e.ErrorMessage));
+            Assert.Contains(ClientValidation.SocialNumberInvalid, client.ValidationResult.Errors.Select(e => e.ErrorMessage));
+            Assert.Contains(ClientValidation.BirthdayMustMessage, client.ValidationResult.Errors.Select(e => e.ErrorMessage));
         }
     }
 }
