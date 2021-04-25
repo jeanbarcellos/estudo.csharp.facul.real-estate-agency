@@ -5,7 +5,7 @@ namespace RealEstateAgency.Domain.Entities.Validations
     public class PropertyValidation<T> : AbstractValidator<T> where T : Property
     {
         public static string SaleValueNotEmptyMessage = "O valor de venda deve ser informado";
-        public static string SaleValueMinMessage = $"A quantidade mínima de quartos é {Property.NIM_SALE_VALUE}.";
+        public static string SaleValueMinMessage = $"O valor de venda mínimo é {Property.NIM_SALE_VALUE}.";
 
         public static string ClientNotEmptyMessage = "O cliente deve ser informado";
 
