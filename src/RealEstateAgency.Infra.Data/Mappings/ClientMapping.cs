@@ -4,17 +4,13 @@ using RealEstateAgency.Domain.Entities;
 
 namespace RealEstateAgency.Infra.Data.Mappings
 {
-    public class ClientMapping : IEntityTypeConfiguration<Client>
+    public class ClientMapping : EntityMapping<Client>
     {
-        public void Configure(EntityTypeBuilder<Client> builder)
+        public override void Configure(EntityTypeBuilder<Client> builder)
         {
+            base.Configure(builder);
+
             builder.ToTable("client");
-
-            builder.HasKey(c => c.Id);
-
-            builder.Property(c => c.Id)
-                .IsRequired()
-                .HasColumnName("id");
 
             builder.Property(c => c.Name)
                 .HasColumnName("name")
