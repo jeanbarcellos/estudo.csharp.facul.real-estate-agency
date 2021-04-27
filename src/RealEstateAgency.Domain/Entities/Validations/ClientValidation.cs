@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using RealEstateAgency.Core.Validations;
 using System;
 
 namespace RealEstateAgency.Domain.Entities.Validations
@@ -42,6 +43,6 @@ namespace RealEstateAgency.Domain.Entities.Validations
                 .Must(HaveMinimumAge).WithMessage(BirthdayMustMessage);
         }
 
-        protected static bool CpfIsValid(string socialNumber) => RealEstateAgency.Core.Validations.IsValidCpf(socialNumber);
+        protected static bool CpfIsValid(string socialNumber) => CpfValidator.IsValid(socialNumber);
     }
 }
