@@ -1,10 +1,15 @@
 ﻿using RealEstateAgency.Core.Extensions;
 
-namespace RealEstateAgency.Core
+namespace RealEstateAgency.Core.Validations
 {
-    public static class Validations
+    public static class CnpjValidator
     {
-        public static bool IsValidCpf(string cpf)
+        public static bool IsValid(string value)
+        {
+            return Algorithm(value);
+        }
+
+        public static bool Algorithm(string cpf)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
