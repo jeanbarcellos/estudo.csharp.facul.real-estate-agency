@@ -16,6 +16,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAgency.Infra.Data", "src\RealEstateAgency.Infra.Data\RealEstateAgency.Infra.Data.csproj", "{C5C283ED-0ED5-4CDE-92BA-3D1516792555}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateAgency.Service.Api", "src\RealEstateAgency.Service.Api\RealEstateAgency.Service.Api.csproj", "{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{00563E07-C8AE-4829-8CF7-B9E05E746A5B} = {00563E07-C8AE-4829-8CF7-B9E05E746A5B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
