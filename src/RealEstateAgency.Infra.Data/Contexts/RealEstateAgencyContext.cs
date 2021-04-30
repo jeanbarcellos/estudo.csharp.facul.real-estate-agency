@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation.Results;
+using Microsoft.EntityFrameworkCore;
 using RealEstateAgency.Core.Data;
 using RealEstateAgency.Domain.Entities;
 using System;
@@ -16,6 +17,8 @@ namespace RealEstateAgency.Infra.Data.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<ValidationResult>();
+
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
                 x => x.GetProperties().Where(p => p.ClrType == typeof(string))))
             {
