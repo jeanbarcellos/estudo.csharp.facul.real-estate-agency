@@ -6,6 +6,8 @@ namespace RealEstateAgency.Service.Api.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        [HttpGet]
+        [Route("")]
         public IActionResult Index()
         {
             return Ok("Home");

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using RealEstateAgency.Service.Api.Configurations;
 
 namespace RealEstateAgency.Service.Api
 {
@@ -18,12 +19,11 @@ namespace RealEstateAgency.Service.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-
+            // WebAPI Config
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RealEstateAgency.Service.Api", Version = "v1" });
-            });
+
+            // Swagger Config
+            services.AddSwaggerConfiguration();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -31,8 +31,6 @@ namespace RealEstateAgency.Service.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RealEstateAgency.Service.Api v1"));
             }
 
             app.UseHttpsRedirection();
@@ -45,6 +43,8 @@ namespace RealEstateAgency.Service.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwaggerSetup();
         }
     }
 }
