@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6D508AB1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAgency.Domain.Tests", "tests\RealEstateAgency.Domain.Tests\RealEstateAgency.Domain.Tests.csproj", "{815C324C-9978-4A13-AF7E-8D19C8B39EA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateAgency.Application", "src\RealEstateAgency.Application\RealEstateAgency.Application.csproj", "{00563E07-C8AE-4829-8CF7-B9E05E746A5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAgency.Application", "src\RealEstateAgency.Application\RealEstateAgency.Application.csproj", "{00563E07-C8AE-4829-8CF7-B9E05E746A5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateAgency.Infra.Data", "src\RealEstateAgency.Infra.Data\RealEstateAgency.Infra.Data.csproj", "{C5C283ED-0ED5-4CDE-92BA-3D1516792555}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAgency.Infra.Data", "src\RealEstateAgency.Infra.Data\RealEstateAgency.Infra.Data.csproj", "{C5C283ED-0ED5-4CDE-92BA-3D1516792555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateAgency.Service.Api", "src\RealEstateAgency.Service.Api\RealEstateAgency.Service.Api.csproj", "{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,18 @@ Global
 		{C5C283ED-0ED5-4CDE-92BA-3D1516792555}.Release|x64.Build.0 = Release|Any CPU
 		{C5C283ED-0ED5-4CDE-92BA-3D1516792555}.Release|x86.ActiveCfg = Release|Any CPU
 		{C5C283ED-0ED5-4CDE-92BA-3D1516792555}.Release|x86.Build.0 = Release|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Debug|x86.Build.0 = Debug|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Release|x64.Build.0 = Release|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Release|x86.ActiveCfg = Release|Any CPU
+		{EC60733D-B1DF-40C0-9A89-CA9A94467DFF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
