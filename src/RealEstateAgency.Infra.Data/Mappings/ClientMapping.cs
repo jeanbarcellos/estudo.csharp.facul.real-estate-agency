@@ -10,7 +10,7 @@ namespace RealEstateAgency.Infra.Data.Mappings
         {
             base.Configure(builder);
 
-            builder.ToTable("client");
+            // Configure only columns and foreign keys
 
             builder.Property(c => c.Name)
                 .HasColumnName("name")
@@ -26,7 +26,6 @@ namespace RealEstateAgency.Infra.Data.Mappings
                 .HasColumnName("birthday")
                 .HasColumnType("date")
                 .IsRequired();
-
         }
     }
 }
