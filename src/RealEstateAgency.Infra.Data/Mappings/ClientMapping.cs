@@ -24,6 +24,7 @@ namespace RealEstateAgency.Infra.Data.Mappings
 
             builder.Property(c => c.Birthday)
                 .HasColumnName("birthday")
+                .HasColumnType("date")
                 .IsRequired();
 
         }
