@@ -23,7 +23,8 @@ namespace RealEstateAgency.Infra.Data.Contexts
                 x => x.GetProperties().Where(p => p.ClrType == typeof(string))))
             {
                 // Por padrão todos os campos strings serão varchar(128)
-                property.SetColumnType("varchar(128)");
+                //property.SetColumnType("character varying(128)");
+                property.SetMaxLength(128);
             }
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(RealEstateAgencyContext).Assembly);
