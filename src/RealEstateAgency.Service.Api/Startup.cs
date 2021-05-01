@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using RealEstateAgency.Service.Api.Configurations;
 
 namespace RealEstateAgency.Service.Api
@@ -19,14 +18,20 @@ namespace RealEstateAgency.Service.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // WebAPI Config
+            // WebAPI Settings
             services.AddControllers();
 
-            // Daatbase Config
+            // Daatbase Settings
             services.AddDatabaseConfiguration(Configuration);
 
-            // Swagger Config
+            // Swagger Settings
             services.AddSwaggerConfiguration();
+
+            // AutoMapper Settings
+            services.AddAutoMapperConfiguration();
+
+            // DI Abstraction
+            services.AddDependencyInjectionConfiguration();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
