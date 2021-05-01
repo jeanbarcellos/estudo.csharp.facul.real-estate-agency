@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateAgency.Core.Validations.DataAnnotations
+namespace RealEstateAgency.Core.DataAnnotations
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public class MinimumDate : ValidationAttribute

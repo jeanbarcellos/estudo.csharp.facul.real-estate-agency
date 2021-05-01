@@ -1,15 +1,16 @@
-﻿using System;
+﻿using RealEstateAgency.Core.Validations;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace RealEstateAgency.Core.Validations.DataAnnotations
+namespace RealEstateAgency.Core.DataAnnotations
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
-    public class IsEmptyAttribute : ValidationAttribute
+    public class CpfValid : ValidationAttribute
     {
         public override bool IsValid(object value)
         {
             var inputValue = value as string;
-            return !string.IsNullOrEmpty(inputValue);
+            return CpfValidator.IsValid(inputValue);
         }
     }
 }
