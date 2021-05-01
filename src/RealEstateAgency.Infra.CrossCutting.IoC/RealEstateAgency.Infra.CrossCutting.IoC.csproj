@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RealEstateAgency.Application\RealEstateAgency.Application.csproj" />
+    <ProjectReference Include="..\RealEstateAgency.Core\RealEstateAgency.Core.csproj" />
+    <ProjectReference Include="..\RealEstateAgency.Domain\RealEstateAgency.Domain.csproj" />
     <ProjectReference Include="..\RealEstateAgency.Infra.Data\RealEstateAgency.Infra.Data.csproj" />
   </ItemGroup>
 
