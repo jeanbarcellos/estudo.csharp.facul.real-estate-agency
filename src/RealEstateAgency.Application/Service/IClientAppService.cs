@@ -9,8 +9,9 @@ namespace RealEstateAgency.Application.Service
     {
         Task<IEnumerable<ClientViewModel>> GetAll();
         Task<ClientViewModel> GetById(Guid id);
+        Task<bool> Exists(Guid id);
 
-        Task Add(ClientViewModel clientViewModel);
+        Task<Guid> Add(ClientViewModel clientViewModel);
         Task Update(ClientViewModel clientViewModel);
         Task Delete(ClientViewModel clientViewModel);
         Task Delete(Guid id);

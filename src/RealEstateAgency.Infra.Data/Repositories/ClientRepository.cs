@@ -5,6 +5,7 @@ using RealEstateAgency.Domain.Interfaces;
 using RealEstateAgency.Infra.Data.Contexts;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RealEstateAgency.Infra.Data.Repositories
@@ -32,9 +33,12 @@ namespace RealEstateAgency.Infra.Data.Repositories
             return await _context.Clients.FindAsync(id);
         }
 
-        public void Insert(Client client)
+
+        public Guid Insert(Client client)
         {
             _context.Clients.Add(client);
+
+            return client.Id;
         }
 
         public void Update(Client client)
@@ -61,6 +65,11 @@ namespace RealEstateAgency.Infra.Data.Repositories
         public void Dispose()
         {
             _context?.Dispose();
+        }
+
+        public async Task<bool> Exists(Guid id)
+        {
+            return await _context.Clients.AnyAsync(e => e.Id == id);
         }
     }
 }

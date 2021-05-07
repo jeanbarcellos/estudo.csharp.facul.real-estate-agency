@@ -12,7 +12,6 @@ namespace RealEstateAgency.Domain.Entities
 
         public Client(string socialNumber, string name, DateTime birthday)
         {
-            Id = Guid.NewGuid();
             SocialNumber = socialNumber;
             Name = name;
             Birthday = birthday;

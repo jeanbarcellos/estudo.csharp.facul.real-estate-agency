@@ -29,13 +29,20 @@ namespace RealEstateAgency.Application.Service
             return _mapper.Map<ClientViewModel>(await _clientRepository.GetById(id));
         }
 
-        public async Task Add(ClientViewModel clientViewModel)
+        public async Task<bool> Exists(Guid id)
+        {
+            return await _clientRepository.Exists(id);
+        }
+
+        public async Task<Guid> Add(ClientViewModel clientViewModel)
         {
             var client = _mapper.Map<Client>(clientViewModel);
 
             _clientRepository.Insert(client);
 
             await _clientRepository.UnitOfWork.Commit();
+
+            return client.Id;
         }
 
         public async Task Update(ClientViewModel clientViewModel)

@@ -10,8 +10,9 @@ namespace RealEstateAgency.Domain.Interfaces
     {
         Task<IEnumerable<Client>> GetAll();
         Task<Client> GetById(Guid id);
+        Task<bool> Exists(Guid id);
 
-        void Insert(Client client);
+        Guid Insert(Client client);
         void Update(Client client);
         void Delete(Client client);
         void Delete(Guid id);
