@@ -1,18 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using RealEstateAgency.Application.Service;
 using RealEstateAgency.Application.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RealEstateAgency.Service.Api.Controllers
 {
 
     [Route("api/client")]
-    [ApiController]
-    public class ClientController : ControllerBase
+    public class ClientController : ApiController
     {
         private readonly IClientAppService _clientAppService;
 
@@ -30,9 +27,16 @@ namespace RealEstateAgency.Service.Api.Controllers
 
         [HttpGet]
         [Route("{id:guid}")]
-        public async Task<ClientViewModel> Show(Guid id)
+        public async Task<IActionResult> Show(Guid id)
         {
-            return await _clientAppService.GetById(id);
+            var result = await _clientAppService.GetById(id);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
         }
 
         [HttpPost]
@@ -41,26 +45,33 @@ namespace RealEstateAgency.Service.Api.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return ResponseValidation(ModelState);
             }
 
-            await _clientAppService.Add(clientViewModel);
+            clientViewModel.Id = await _clientAppService.Add(clientViewModel);
 
-            return Ok();
+            return CreatedAtAction(nameof(Show), new { id = clientViewModel.Id }, clientViewModel);
         }
 
         [HttpPut]
         [Route("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] ClientViewModel clientViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return ResponseValidation(ModelState);
+            }
+
             if (clientViewModel == null || id == Guid.Empty || id != clientViewModel.Id)
             {
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            var result = await _clientAppService.Exists(id);
+
+            if (!result)
             {
-                return BadRequest(ModelState);
+                return NotFound();
             }
 
             await _clientAppService.Update(clientViewModel);
@@ -77,16 +88,16 @@ namespace RealEstateAgency.Service.Api.Controllers
                 return NotFound();
             }
 
-            var result = await _clientAppService.GetById(id);
+            var result = await _clientAppService.Exists(id);
 
-            if (result == null)
+            if (!result)
             {
                 return NotFound();
             }
 
             await _clientAppService.Delete(id);
 
-            return Ok(result);
+            return Ok();
         }
 
     }
