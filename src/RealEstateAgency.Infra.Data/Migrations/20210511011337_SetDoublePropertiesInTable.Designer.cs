@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RealEstateAgency.Infra.Data.Contexts;
@@ -9,9 +10,10 @@ using RealEstateAgency.Infra.Data.Contexts;
 namespace RealEstateAgency.Infra.Data.Migrations
 {
     [DbContext(typeof(RealEstateAgencyContext))]
-    partial class RealEstateAgencyContextModelSnapshot : ModelSnapshot
+    [Migration("20210511011337_SetDoublePropertiesInTable")]
+    partial class SetDoublePropertiesInTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
