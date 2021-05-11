@@ -16,10 +16,12 @@ namespace RealEstateAgency.Infra.Data.Mappings
 
             builder.Property(o => o.Width)
                 .HasColumnName("width")
+                .HasColumnType("float")
                 .IsRequired();
 
             builder.Property(o => o.Height)
                 .HasColumnName("height")
+                .HasColumnType("float")
                 .IsRequired();
         }
     }

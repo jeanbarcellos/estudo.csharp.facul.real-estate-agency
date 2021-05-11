@@ -12,6 +12,7 @@ namespace RealEstateAgency.Infra.Data.Mappings
 
             builder.Property(o => o.SaleValue)
                 .HasColumnName("sale_value")
+                .HasColumnType("float")
                 .IsRequired();
 
             builder.Property(o => o.ClientId)
