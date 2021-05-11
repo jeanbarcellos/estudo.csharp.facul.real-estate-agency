@@ -15,6 +15,11 @@ namespace RealEstateAgency.Domain.Entities
         public bool HasFurtine { get; private set; }
         public string Description { get; set; }
 
+        // EF Rel.
+        protected Apartment()
+        {
+        }
+
         public Apartment(
             int numberOfBedrooms,
             int numberOfBathrooms,

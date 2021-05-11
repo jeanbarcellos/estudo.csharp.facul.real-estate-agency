@@ -8,6 +8,11 @@ namespace RealEstateAgency.Domain.Entities
         public decimal Width { get; set; }
         public decimal Height { get; set; }
 
+        // EF Rel.
+        protected Land()
+        {
+        }
+
         public Land(bool onACorner, decimal width, decimal height, decimal saleValue, Client client) : base(saleValue, client)
         {
             OnACorner = onACorner;

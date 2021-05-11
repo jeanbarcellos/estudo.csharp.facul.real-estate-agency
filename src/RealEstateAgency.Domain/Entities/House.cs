@@ -13,6 +13,12 @@ namespace RealEstateAgency.Domain.Entities
         public bool HasFurtine { get; private set; }
         public string Description { get; set; }
 
+        // EF Construct
+        protected House()
+        {
+
+        }
+
         public House(
             int numberOfBedrooms,
             int numberOfBathrooms,

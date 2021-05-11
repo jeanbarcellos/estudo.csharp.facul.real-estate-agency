@@ -7,9 +7,11 @@ namespace RealEstateAgency.Domain.Entities
     {
         public static decimal NIM_SALE_VALUE = 9999.99m;
 
-        public decimal SaleValue { get; set; }
-        public Client Client { get; set; }
+        public decimal SaleValue { get; private set; }
+        public virtual Client Client { get; private set; }
+        public Guid ClientId { get; private set; }
 
+        // EF Contruct
         protected Property()
         { }
 
