@@ -11,6 +11,10 @@ namespace RealEstateAgency.Infra.Data.Contexts
     public class RealEstateAgencyContext : DbContext, IUnitOfWork
     {
         public DbSet<Client> Clients { get; set; }
+        public DbSet<Property> Propeties { get; set; }
+        public DbSet<House> Houses { get; set; }
+        public DbSet<Apartment> Apartment { get; set; }
+        public DbSet<Land> Lands { get; set; }
 
         public RealEstateAgencyContext(DbContextOptions<RealEstateAgencyContext> options)
         : base(options) { }
@@ -36,12 +40,12 @@ namespace RealEstateAgency.Infra.Data.Contexts
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                    entry.Property("CreatedAt").CurrentValue = DateTime.Now;
                 }
 
                 if (entry.State == EntityState.Modified)
                 {
-                    entry.Property("DataCadastro").IsModified = false;
+                    entry.Property("CreatedAt").IsModified = false;
                 }
             }
 

@@ -58,5 +58,14 @@ namespace RealEstateAgency.Infra.Data.Mappings
             return builder;
         }
 
+        protected string GenerateForeignKeyName(string columnName)
+        {
+            return $"{GetTableName()}_{columnName}_fk";
+        }
+
+        protected string GenerateIndexName(string columnName)
+        {
+            return $"{GetTableName()}_{columnName}_ix";
+        }
     }
 }
