@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RealEstateAgency.Application.Service;
+using RealEstateAgency.Application.Interfaces;
 using RealEstateAgency.Application.ViewModel;
 using System;
 using System.Collections.Generic;

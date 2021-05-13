@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using RealEstateAgency.Application.Interfaces;
 using RealEstateAgency.Application.ViewModel;
 using RealEstateAgency.Domain.Entities;
 using RealEstateAgency.Domain.Interfaces;
@@ -6,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RealEstateAgency.Application.Service
+namespace RealEstateAgency.Application.Services
 {
     public class ClientAppService : IClientAppService
     {

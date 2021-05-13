@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RealEstateAgency.Application.Service
+namespace RealEstateAgency.Application.Interfaces
 {
     public interface IHouseAppService
     {

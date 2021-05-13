@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RealEstateAgency.Application.Service;
+using RealEstateAgency.Application.Interfaces;
+using RealEstateAgency.Application.Services;
 using RealEstateAgency.Domain.Interfaces;
 using RealEstateAgency.Infra.Data.Contexts;
 using RealEstateAgency.Infra.Data.Repositories;
