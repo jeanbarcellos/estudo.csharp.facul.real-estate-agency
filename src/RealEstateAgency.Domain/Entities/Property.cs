@@ -3,7 +3,7 @@ using System;
 
 namespace RealEstateAgency.Domain.Entities
 {
-    public abstract class Property : Entity
+    public abstract class Property : Entity, IAggregateRoot
     {
         public static decimal NIM_SALE_VALUE = 9999.99m;
 
