@@ -11,7 +11,7 @@ namespace RealEstateAgency.Infra.Data.Contexts
     public class RealEstateAgencyContext : DbContext, IUnitOfWork
     {
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Property> Propeties { get; set; }
+        public DbSet<Property> Properties { get; set; }
         public DbSet<House> Houses { get; set; }
         public DbSet<Apartment> Apartment { get; set; }
         public DbSet<Land> Lands { get; set; }
