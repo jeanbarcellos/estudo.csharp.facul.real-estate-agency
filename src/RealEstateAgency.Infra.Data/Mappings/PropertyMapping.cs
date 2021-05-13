@@ -10,9 +10,17 @@ namespace RealEstateAgency.Infra.Data.Mappings
         {
             base.Configure(builder);
 
+            // TPH - Gerar uma estrutura de herança de entidade a partir de uma única tabela de banco de dados
+            // TPC - Tabela por Classe Concreta - Todas as propriedades de uma classe, incluindo propriedades herdadas, são mapeadas para colunas da tabela correspondente
+            // TPT - Tabela por tipo (uma tabela de banco de dados para cada classe de entidade)
+            //
+            // Os padrões de herança do TPC e do TPH geralmente oferecem melhor desempenho no Entity Framework que os padrões de herança do TPT,
+            // pois os padrões de TPT podem resultar em consultas de junção complexas
+            //
+            // TPH é o padrão de herança padrão no Entity Framework
+
             builder.Property(o => o.SaleValue)
                 .HasColumnName("sale_value")
-                .HasColumnType("float")
                 .IsRequired();
 
             builder.Property(o => o.ClientId)

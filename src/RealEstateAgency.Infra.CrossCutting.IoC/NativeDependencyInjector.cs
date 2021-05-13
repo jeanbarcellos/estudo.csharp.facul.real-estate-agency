@@ -15,12 +15,14 @@ namespace RealEstateAgency.Infra.CrossCutting.IoC
 
             // Application
             services.AddScoped<IClientAppService, ClientAppService>();
+            services.AddScoped<IHouseAppService, HouseAppService>();
 
             // Domain
 
             // Infra - Data
             services.AddScoped<RealEstateAgencyContext>();
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IHouseRepository, HouseRepository>();
         }
     }
 }

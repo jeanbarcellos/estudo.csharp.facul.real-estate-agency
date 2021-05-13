@@ -9,6 +9,7 @@ namespace RealEstateAgency.Application.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             CreateMap<Client, ClientViewModel>();
+            CreateMap<House, HouseViewModel>();
         }
     }
 }

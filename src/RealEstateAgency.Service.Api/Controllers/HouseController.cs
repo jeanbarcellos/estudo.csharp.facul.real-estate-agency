@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace RealEstateAgency.Service.Api.Controllers
 {
-    [Route("api/client")]
-    public class ClientController : ApiController
+    [Route("api/house")]
+    public class HouseController : ApiController
     {
-        private readonly IClientAppService _clientAppService;
+        private readonly IHouseAppService _houseAppService;
 
-        public ClientController(IClientAppService clientAppService)
+        public HouseController(IHouseAppService houseAppService)
         {
-            _clientAppService = clientAppService;
+            _houseAppService = houseAppService;
         }
 
         [HttpGet]
         [Route("")]
-        public async Task<IEnumerable<ClientViewModel>> Index()
+        public async Task<IEnumerable<HouseViewModel>> Index()
         {
-            return await _clientAppService.GetAll();
+            return await _houseAppService.GetAll();
         }
 
         [HttpGet]
         [Route("{id:guid}")]
         public async Task<IActionResult> Show(Guid id)
         {
-            var result = await _clientAppService.GetById(id);
+            var result = await _houseAppService.GetById(id);
 
             if (result == null)
             {
@@ -40,40 +40,40 @@ namespace RealEstateAgency.Service.Api.Controllers
 
         [HttpPost]
         [Route("")]
-        public async Task<IActionResult> Insert([FromBody] ClientViewModel clientViewModel)
+        public async Task<IActionResult> Insert([FromBody] HouseViewModel houseViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return ResponseValidation(ModelState);
             }
 
-            clientViewModel.Id = await _clientAppService.Add(clientViewModel);
+            houseViewModel.Id = await _houseAppService.Add(houseViewModel);
 
-            return CreatedAtAction(nameof(Show), new { id = clientViewModel.Id }, clientViewModel);
+            return CreatedAtAction(nameof(Show), new { id = houseViewModel.Id }, houseViewModel);
         }
 
         [HttpPut]
         [Route("{id:guid}")]
-        public async Task<IActionResult> Update(Guid id, [FromBody] ClientViewModel clientViewModel)
+        public async Task<IActionResult> Update(Guid id, [FromBody] HouseViewModel houseViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return ResponseValidation(ModelState);
             }
 
-            if (clientViewModel == null || id == Guid.Empty || id != clientViewModel.Id)
+            if (houseViewModel == null || id == Guid.Empty || id != houseViewModel.Id)
             {
                 return NotFound();
             }
 
-            var result = await _clientAppService.Exists(id);
+            var result = await _houseAppService.Exists(id);
 
             if (!result)
             {
                 return NotFound();
             }
 
-            await _clientAppService.Update(clientViewModel);
+            await _houseAppService.Update(houseViewModel);
 
             return Ok();
         }
@@ -87,14 +87,14 @@ namespace RealEstateAgency.Service.Api.Controllers
                 return NotFound();
             }
 
-            var result = await _clientAppService.Exists(id);
+            var result = await _houseAppService.Exists(id);
 
             if (!result)
             {
                 return NotFound();
             }
 
-            await _clientAppService.Delete(id);
+            await _houseAppService.Delete(id);
 
             return Ok();
         }

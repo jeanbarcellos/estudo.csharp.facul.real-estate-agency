@@ -1,8 +1,9 @@
-﻿using RealEstateAgency.Domain.Entities.Validations;
+﻿using RealEstateAgency.Core.Domain;
+using RealEstateAgency.Domain.Entities.Validations;
 
 namespace RealEstateAgency.Domain.Entities
 {
-    public class House : Property
+    public class House : Property, IAggregateRoot
     {
         public static int MIN_NUMBER_OF_BEDROOMS = 1;
         public static int MIN_NUMBER_OF_BATHROMS = 1;
