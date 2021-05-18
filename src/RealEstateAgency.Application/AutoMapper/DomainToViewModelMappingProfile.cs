@@ -10,6 +10,8 @@ namespace RealEstateAgency.Application.AutoMapper
         {
             CreateMap<Client, ClientViewModel>();
             CreateMap<House, HouseViewModel>();
+            CreateMap<Apartment, ApartmentViewModel>();
+            CreateMap<Land, LandViewModel>();
         }
     }
 }
