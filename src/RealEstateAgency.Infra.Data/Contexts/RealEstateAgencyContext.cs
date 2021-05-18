@@ -13,7 +13,7 @@ namespace RealEstateAgency.Infra.Data.Contexts
         public DbSet<Client> Clients { get; set; }
         public DbSet<Property> Properties { get; set; }
         public DbSet<House> Houses { get; set; }
-        public DbSet<Apartment> Apartment { get; set; }
+        public DbSet<Apartment> Apartments { get; set; }
         public DbSet<Land> Lands { get; set; }
 
         public RealEstateAgencyContext(DbContextOptions<RealEstateAgencyContext> options)

@@ -5,7 +5,6 @@ using RealEstateAgency.Domain.Interfaces;
 using RealEstateAgency.Infra.Data.Contexts;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RealEstateAgency.Infra.Data.Repositories
