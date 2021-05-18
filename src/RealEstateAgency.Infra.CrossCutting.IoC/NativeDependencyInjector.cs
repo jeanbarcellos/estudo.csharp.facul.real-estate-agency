@@ -18,6 +18,8 @@ namespace RealEstateAgency.Infra.CrossCutting.IoC
             services.AddScoped<IClientAppService, ClientAppService>();
             services.AddScoped<IPropertyAppService, PropertyAppService>();
             services.AddScoped<IHouseAppService, HouseAppService>();
+            services.AddScoped<IApartmentAppService, ApartmentAppService>();
+            services.AddScoped<ILandAppService, LandAppService>();
 
             // Domain
 
@@ -26,6 +28,8 @@ namespace RealEstateAgency.Infra.CrossCutting.IoC
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IPropertyRepository, PropertyRepository>();
             services.AddScoped<IHouseRepository, HouseRepository>();
+            services.AddScoped<IApartmentRepository, ApartmentRepository>();
+            services.AddScoped<ILandRepository, LandRepository>();
         }
     }
 }
