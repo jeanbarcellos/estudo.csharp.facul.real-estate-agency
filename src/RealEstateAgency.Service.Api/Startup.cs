@@ -22,7 +22,7 @@ namespace RealEstateAgency.Service.Api
             // WebAPI Settings
             services.AddControllers();
 
-            // Daatbase Settings
+            // Database Settings
             services.AddDatabaseConfiguration(Configuration);
 
             // Swagger Settings

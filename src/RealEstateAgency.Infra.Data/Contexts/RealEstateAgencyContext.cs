@@ -36,7 +36,7 @@ namespace RealEstateAgency.Infra.Data.Contexts
 
         public async Task<bool> Commit()
         {
-            foreach (var entry in ChangeTracker.Entries().Where(e => e.Entity.GetType().GetProperty("DataCadastro") != null))
+            foreach (var entry in ChangeTracker.Entries().Where(e => e.Entity.GetType().GetProperty("CreatedAt") != null))
             {
                 if (entry.State == EntityState.Added)
                 {
